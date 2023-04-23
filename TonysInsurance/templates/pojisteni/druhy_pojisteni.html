@@ -1,0 +1,49 @@
+{% extends 'pojisteni/adminbase.html' %}
+{% block content %}
+{%load static%}
+{% load django_bootstrap5 %}
+
+<head>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  <style media="screen">
+    h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+<br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Druhy pojištění</h3><br>
+      <h6 class="btn btn-success"><a href="pridat-druh-pojisteni" style="text-decoration: none;color:white;">Přidat nový druh pojištění</a></h6>
+    </div><br>
+    <table class="table table-success table-striped">
+      <thead>
+        <tr>
+        <th>Čislo</th>
+          <th>Druh pojištění</th>
+          <th> Ze dne</th>
+          <th>Změnit název</th>
+          <th>Odstranit</th>
+        </tr>
+      </thead>
+      {% for t in categories %}
+      <tr>
+        <td> {{ forloop.counter }}</td>
+        <td> {{t.category_name}}</td>
+        <td>{{t.creation_date}}</td>
+
+        <td><a class="m-b-20" href="{% url 'zmenit-nazev-pojisteni' t.id  %}"><span class="glyphicon glyphicon-edit" ></span>editovat</a></td>
+        <td><a class="m-b-20" style="text-decoration: none;color: red;" href="{% url 'smazat-druh-pojisteni' t.id  %}"><span class="glyphicon glyphicon-trash"></span>odstranit</a></td>
+
+
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<br><br><br><br><br><br>
+{% endblock content %}

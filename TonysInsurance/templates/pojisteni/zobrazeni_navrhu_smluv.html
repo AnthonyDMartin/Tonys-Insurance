@@ -1,0 +1,47 @@
+{% extends 'pojisteni/adminbase.html' %}
+{% block content %}
+{%load static%}
+{% load django_bootstrap5 %}
+
+<head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+  <style media="screen">
+  h3 {
+      text-align: center;
+    }
+  </style>
+
+</head>
+<br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Návrhy smlouv</h3><br>
+    </div>
+    <table class="table table-success table-striped">
+      <thead>
+        <tr>
+        <th>Číslo</th>
+          <th>Návrh smlouva</th>
+          <th>Žadatel</th>
+          <th> Ze dne</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      {% for t in policyrecords %}
+      <tr>
+        <td> {{ forloop.counter }}</td>
+        <td> {{t.Policy}}</td>
+        <td> {{t.customer}}</td>
+        <td>{{t.creation_date}}</td>
+        <td>{{t.status}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

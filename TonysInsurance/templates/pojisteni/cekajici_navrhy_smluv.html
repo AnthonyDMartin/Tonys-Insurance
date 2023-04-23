@@ -1,0 +1,66 @@
+{% extends 'pojisteni/adminbase.html' %}
+{% block content %}
+{%load static%}
+{% load django_bootstrap5 %}
+
+<head>
+    {{% bootstrap_css %}
+    {% bootstrap_javascript %}<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+<br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Návrhy smluv čekajíci schválení</h3><br>
+    </div>
+    <table class="table table-success table-striped">
+      <thead>
+        <tr>
+        <th>Číslo</th>
+          <th>Návrh smlouva</th>
+          <th>Žadatel</th>
+          <th> Ze dne</th>
+          <th>Status</th>
+          <th class="text-center">Schválit nebo zamítnout</th>
+          
+        </tr>
+      </thead>
+      {% for t in policyrecords %}
+      <tr>
+        <td> {{ forloop.counter }}</td>
+        <td> {{t.Policy}}</td>
+        <td> {{t.customer}}</td>
+        
+        <td>{{t.creation_date}}</td>
+        <td>{{t.status}}</td>
+                     {% if t.status == 'Čeká na schválení' %}
+                <td class="text-center">
+                    <button class="btn btn-primary badge-pill" style="width: 120px;"><a  style="text-decoration: none;color: white;" href="{% url 'schvalit' t.id  %}">Schválit</a> </button>
+                    <button class="btn btn-danger badge-pill" style="width: 120px;"><a  style="text-decoration: none;color: white;" href="{% url 'zamitnout' t.id  %}">Zamítnout</a> </button>
+                </td>
+
+                     {% elif t.status == 'Schváleno' %}
+                <td class="text-center">
+                    <span style="color:blue;font-size:15px;" class="label success">{{t.status}}</span></td>
+
+                {% else %}
+                <td class="text-center">
+                <span style="color:red;font-size:15px;" class="label success">{{t.status}}</span></td>
+
+
+                {% endif %}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

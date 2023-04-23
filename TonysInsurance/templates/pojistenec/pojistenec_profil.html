@@ -1,0 +1,34 @@
+{% extends 'pojistenec/pojistenecbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+{% load django_bootstrap5 %}
+
+<head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="utf-8">
+  <style media="screen">
+
+  </style>
+
+  </head>
+<div class="row row-cols-1 row-cols-md-1 g-3">
+  <div class="col">
+    <div class="card" style="margin-top: 20px; margin-right: 20px; margin-left: -20px;">
+      <div class="card-body">
+        <h5 class="card-title">Aktuální nabídka pojištění</h5><br>
+        <a href="zadost" class="btn btn-success">Zobrazit</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card" style="margin-top: 20px; margin-right: 20px; margin-left: -20px;">
+      <div class="card-body">
+        <h5 class="card-title">Moje žádosti a smlouvy</h5><br>
+        <a href="archiv" class="btn btn-success">Zobrazit</a>
+      </div>
+    </div>
+  </div>
+  </div><br><br><br><br><br><br><br><br><br>
+
+{% endblock content %}

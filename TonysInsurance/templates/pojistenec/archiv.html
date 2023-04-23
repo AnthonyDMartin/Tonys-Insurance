@@ -1,0 +1,47 @@
+{% extends 'pojistenec/pojistenecbase.html' %}
+{% block content %}
+{%load static%}
+{% load django_bootstrap5 %}
+
+<head>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  <style media="screen">
+    h3 {
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+<div class="container" style="margin:0px; margin-top: 20px; margin-right: 0px; margin-left: 0px;">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Archiv</h3><br>
+    </div>
+    <table class="table table-success table-striped">
+      <thead>
+        <tr>
+        <th>Čislo</th>
+          <th>Název smlouvy</th>
+
+          <th> Ze dne</th>
+          <th> Status</th>
+          
+        </tr>
+      </thead>
+      {% for t in policies %}
+      <tr>
+        <td> {{ forloop.counter }}</td>
+        <td> {{t.Policy}}</td>
+
+        <td>{{t.creation_date}}</td>
+        <td>{{t.status}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock content %}

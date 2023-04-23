@@ -1,0 +1,53 @@
+{% extends 'pojisteni/adminbase.html' %}
+{% block content %}
+{%load static%}
+{% load django_bootstrap5 %}
+
+<head>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+<br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Dotazy</h3><br>
+    </div>
+    <table class="table table-success table-striped">
+      <thead>
+        <tr>
+            <th>Čislo</th>
+          <th>Pojištěnec</th>
+          <th> Problém</th>
+          <th>Naše odpověď</th>
+          <th> Ze dne</th>
+          <th>Zobrazit</th>
+          <th>Odstranit</th>
+        </tr>
+      </thead>
+      {% for t in questions %}
+      <tr>
+        <td> {{ forloop.counter }}</td>
+        <td> {{t.customer}}</td>
+        <td> {{t.description}}</td>
+        <td> {{t.admin_comment}}</td>
+        <td> {{t.asked_date}}</td>
+        
+        <td><a class="m-b-20" href="{% url 'odpovedet' t.id  %}"><span class="glyphicon glyphicon-edit"></span>odpovědět</a></td>
+        <td><a class="m-b-20" style="text-decoration: none;color: red;" href="{% url 'smazat-dotaz' t.id  %}"><span class="glyphicon glyphicon-trash"></span>odstranit</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

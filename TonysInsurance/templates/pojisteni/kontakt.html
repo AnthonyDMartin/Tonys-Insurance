@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_bootstrap5 %}
+<html lang="cs-cz" dir="ltr">
+
+<head>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
+</head>
+
+<body>
+
+  {% include "pojisteni/navbar.html" %}
+  <br><br><br>
+
+    <h3 class='alert alert-success' style="text-align:center;">Máte dotaz na Klientskou zónu? Chcete vědět něco o kariéře u nás? Zajímá vás otevírací doba pobočky? Napište nám.</h3>
+
+    <form method="POST" autocomplete="off">
+      {% csrf_token %}
+      <div class="form-group" style="text-align:center;">
+        <div class="form-container">
+  <form action="" method="POST" class="contact-form">
+    <h1>Kontaktujte nás</h1>
+    <p>Zanechte nám prosím zprávu</p>
+
+    <div class="form-group">
+        <h3>{{ form.as_p }}</h3>
+        <input type="submit" value="Poslat zprávu" class="btn btn-success text-center">
+    </div>
+    </form>
+  </div>
+<br>
+  {% include "pojisteni/footer.html" %}
+
+</body>
+
+</html>

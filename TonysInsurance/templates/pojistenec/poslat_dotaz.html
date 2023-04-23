@@ -1,0 +1,27 @@
+{% extends 'pojistenec/pojistenecbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+  <style media="screen">
+  </style>
+
+
+</head>
+
+<button type="submit" class="btn btn-success" style="margin:0px; margin-top: 10px; margin-right: 20px; margin-left: -250px;"><a href="archiv-dotazu" style= "text aligh: center; color: white;">Moje korespondence s pojišťovnou</a></button><br><br><br>
+<form method="POST" autocomplete="off" style="margin:0px;margin-top: 10px; margin-right: 20px; margin-left: -250px;">
+    <h3 style="text-align:left; color: white; ">Poslat nový dotaz</h3><br>
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="course_name" style="text-align:center; color: white;">Problém</label>
+      {% render_field questionForm.description class="form-control" placeholder="Zde popište problém" %}
+
+
+    </div><br>
+    
+    
+
+    <button type="submit" class="btn btn-success">Odeslat</button>
+  </form>
+<br><br><br><br>
+{% endblock content %}

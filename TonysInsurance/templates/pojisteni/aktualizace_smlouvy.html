@@ -1,0 +1,83 @@
+{% extends 'pojisteni/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+  <style media="screen">
+    input[type=text], select,input[type=number] ,input[type=password], textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  h3 {
+      text-align: center;
+    }
+   label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      padding-left: 60px;
+      margin-top:15px;
+      font-size: 20px;
+      
+      transition: 0.5s;
+      transition-property: color;
+    }
+    .left_area{
+      margin-top:8px;
+    }
+  </style>
+
+
+</head>
+<br>
+<h3>Aktualizace smlouvy</h3><br>
+<div>
+  <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:70px;margin-right:70px;">
+      {% csrf_token %}
+      <label for="course_name">Druh pojištění</label>
+      {% render_field policyForm.category class="form-control" placeholder="Life Insurance" %}
+
+      <label for="course_name">Název smlouvy</label>
+      {% render_field policyForm.policy_name class="form-control" placeholder="Šťastný život" %}
+
+      <label for="course_name">Pojistná částka</label>
+      {% render_field policyForm.sum_assurance class="form-control" placeholder="1000000" %}
+
+      <label for="course_name">Pojistné</label>
+      {% render_field policyForm.premium class="form-control" placeholder="1000" %}
+
+      <label for="course_name">Pojistná doba</label>
+      {% render_field policyForm.tenure class="form-control" placeholder="10" %}
+
+
+        
+<br><br>
+    <input type="submit" value="Uložit">
+  </form>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

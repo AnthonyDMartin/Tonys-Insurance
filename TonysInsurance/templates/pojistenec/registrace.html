@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+{% load django_bootstrap5 %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+        form{
+           margin: 50px; 
+          
+        }
+
+    </style>
+  </head>
+  <body>
+    {% include "pojisteni/navbar.html" %}
+ 
+
+
+<br><br><br>
+<h3 style="text-align: center;">REGISTRACE UŽIVATELE</h3><br>
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px; center;" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="username">Uživatelské jméno</label>
+                {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="Uživatelské jméno" %}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword">Heslo</label>
+                {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="heslo" %}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="first_name">Jméno</label>
+                {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="Jméno" %}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="last_name">Příjmení</label>
+                {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Příjmení" %}
+            </div>
+        </div>
+        <div class="form-row">
+            <div style="margin-top: 6px">
+                <div class="form-group col-md-6">
+                    <label for="birth_date">Datum narození</label><br>
+                    <input type="date"> {{ example_form.birth_date }}
+                    </div>
+                <div class="form-group col-md-6">
+                    <label for="address">Adresa</label>
+                    {% render_field customerForm.address|attr:'required:true'  class="form-control" placeholder="adresa" %}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    {% render_field customerForm.email|attr:'required:true'  class="form-control" placeholder="email" %}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="mobile">Telefon</label>
+                    {% render_field customerForm.mobile|attr:'required:true'  class="form-control" placeholder="telefon" %}
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Uložit</button>
+
+</form>
+
+
+<br><br>
+{% include "pojisteni/footer.html" %}
+  </body>
+</html>

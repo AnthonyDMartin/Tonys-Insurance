@@ -1,0 +1,88 @@
+{% extends 'pojisteni/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+{% load django_bootstrap5 %}
+
+<head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="utf-8">
+  </head>
+<br>
+<div class="card" style="margin:0px; margin-right: 20px; margin-left: 20px;">
+  <h5 class="card-header">{{celkem_navrhu}}</h5>
+  <div class="card-body text-white bg-success mb-0">
+    <h5 class="card-title">Všechny návrhy smluv</h5>
+    <a href="zobrazeni-navrhu-smluv" class="btn btn-success text-white">Zobrazit</a>
+  </div>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-0" style="margin:0px; margin-right: 20px; margin-left: 20px;">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Návrhy smluv čekajíci schválení</h5>
+          <a href="cekajici-navrhy-smluv" class="btn btn-success">Schválit nebo zamítnout</a>
+      </div>
+      <div class="card-footer">
+        <strong class="text-muted">{{cekajici_navrhy}}</strong>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Schválene návrhy smluv</h5>
+        <a href="schvalene-navrhy-smluv" class="btn btn-success">Zobrazit </a>
+      </div>
+      <div class="card-footer">
+        <strong class="text-muted">{{schvalene_navrhy}}</strong>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Zamítnuté návrhy smluv</h5>
+        <a href="zamitnute-navrhy-smluv" class="btn btn-success">Zobrazit </a>
+      </div>
+      <div class="card-footer">
+        <strong class="text-muted">{{zamitnute_navrhy}}</strong>
+      </div>
+    </div>
+  </div>
+</div><br>
+<div class="card" style="margin:0px; margin-right: 20px; margin-left: 20px;">
+  <div class="card-body text-white bg-success mb-0">
+    <h5 class="card-title">Všechny smlouvy</h5>
+    <a href="smlouvy" class="btn btn-success text-white">Zobrazit</a>
+  </div>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-0" style="margin:0px; margin-right: 20px; margin-left: 20px;">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Aktualizace smlouvy</h5>
+          <a href="admin-aktualizace-smlouvy" class="btn btn-success">Editovat</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Přidání smlouvy</h5>
+        <a href="pridat-smlouvu" class="btn btn-success">Přidat</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Zrušení smlouvy</h5>
+        <a href="zruseni-smlouvy" class="btn btn-danger">Zrušit </a>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+
+{% endblock content %}

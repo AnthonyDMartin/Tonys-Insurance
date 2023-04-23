@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_bootstrap5 %}
+<html lang="cs-cz" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+        .xyz{
+          margin-bottom: 0px;
+          background-image: url('{% static "image/homepage.jpg" %}');
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+        .card-img-top {
+        max-width: 100%;
+        height: auto;
+        }
+        </style>
+</head>
+
+<body>
+<section id="section-jumbotron" style="margin-left: 0px;" class="jumbotron jumbotron-fluid d-flex justify-content-left align-items-center xyz">
+  <div class="container text-right"></div>
+<header>
+  <div class="bs-example">
+    <nav class="navbar navbar-expand-md  navbar-dark bg-success fixed-top">
+    <a class="btn btn-success btn-xs" href="pojistenec-profil"><font face = "Gill" size =" 5"> {{request.user.first_name}} {{request.user.last_name}}</font><span class="glyphicon glyphicon-edit"></span><br></a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <div class="navbar-nav">
+          <p style= "padding-left: 15px;" class="nav-item nav-link active"></p>
+
+</div>
+<div>
+
+          <a class="btn btn-success btn-xs" href="aktualizace-udaju">Osobní údaje<span class="glyphicon glyphicon-edit"></span></a>
+
+        </div>
+
+        <div>
+
+          <a class="btn btn-success btn-xs" href="poslat-dotaz">Kontaktovat pojišťovnu<span class="glyphicon glyphicon-edit"></span></a>
+
+        </div>
+
+          <div class="navbar-nav">
+            <a class="btn btn-success btn-xs" href="/logout">Odhlášení<span class="glyphicon glyphicon-edit"></span></a>
+          </div>
+
+
+
+
+    </div>
+  </nav>
+</div>
+
+
+  </header>
+
+
+  <div class="content">
+    <br><br><br><br><br>
+    {% block content %}
+
+    {% endblock content %}
+
+
+    <br><br><br>
+  </div>
+</section>
+</body>
+
+</html>

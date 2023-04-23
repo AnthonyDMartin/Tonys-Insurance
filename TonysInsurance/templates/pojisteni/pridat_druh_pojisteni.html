@@ -1,0 +1,38 @@
+{% extends 'pojisteni/adminbase.html' %}
+{% load widget_tweaks %}
+{% load django_bootstrap5 %}
+{% block content %}
+<head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  a:link {
+        text-decoration: none;
+      }
+      h3 {
+      text-align: center;
+    }
+    
+  </style>
+</head>
+<br>
+<h3>Přidat nový druh pojištění</h3><br>
+<form method="POST" autocomplete="off" style="margin-left:70px;margin-right:70px;">
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="course_name">Název pojištění</label>
+      {% render_field categoryForm.category_name class="form-control" placeholder="Životní pojištění" %}
+
+    </div>
+    
+<br>
+    <button type="submit" class="btn btn-success">Uložit</button>
+  </form>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends 'pojisteni/adminbase.html' %}
+{% load widget_tweaks %}
+{% load django_bootstrap5 %}
+{% block content %}
+<head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  a:link {
+        text-decoration: none;
+      }
+      h3 {
+      text-align: center;
+    }
+    
+  </style>
+</head>
+<br>
+<h3>Přidat novou smlouvu</h3><br>
+<form method="POST" autocomplete="off" style="margin-left:70px;margin-right:70px;">
+    {%csrf_token%}
+    <div class="form-group">
+        <label for="course_name">Druh pojištění</label>
+      {% render_field policyForm.category class="form-control" placeholder="Životní pojištění" %}
+
+        <label for="course_name">Název smlouvy</label>
+      {% render_field policyForm.policy_name class="form-control" placeholder="Šťastný život" %}
+
+        <label for="course_name">Pojistná částka</label>
+        {% render_field policyForm.sum_assurance class="form-control" placeholder="1000000" %}
+
+        <label for="course_name">Pojistné</label>
+        {% render_field policyForm.premium class="form-control" placeholder="1000" %}
+
+        <label for="course_name">Pojistná doba</label>
+        {% render_field policyForm.tenure class="form-control" placeholder="10" %}
+
+
+    </div>
+    
+    
+<br>
+    <button type="submit" class="btn btn-success">Uložit</button>
+  </form>
+<br><br><br><br>
+{% endblock content %}

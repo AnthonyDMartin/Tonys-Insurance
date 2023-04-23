@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_bootstrap5 %}
+<html lang="cs-cz" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+</head>
+
+<body>
+
+  {% include "pojisteni/navbar.html" %}
+  <br><br><br>
+    <h3 class='alert alert-success' style="margin-bottom:0px; text-align: center;">Jsme univerzální pojišťovna, která nabízí ucelené pojišťovací služby občanům a živnostníkům stejně jako malým a středním podnikům i velkým korporacím. <br>Všem svým klientům jsme připraveni poskytnout služby evropské kvality v oblasti životního i neživotního pojištění.</h3>
+  <div class="jumbotron text-center" style="margin-bottom: 0px;margin-top: 0px;">
+    <br>
+    <h4 class="lead">“Souhlasil byste s tím, že jediný člověk, který se může postarat o staršího člověka, kterým jednou budete, je ten mladší, kterým jste nyní ?”</h4>
+    <hr class="my-4"><br>
+    <p>Prozkoumejte tuto naši webovou stránku</p><br>
+    <p class="lead">
+      <a class="btn btn-success text-center" href="/" role="button">Správa pojištění</a>
+    </p>
+    <br><br><br><br>
+  </div>
+
+  {% include "pojisteni/footer.html" %}
+</body>
+
+</html>

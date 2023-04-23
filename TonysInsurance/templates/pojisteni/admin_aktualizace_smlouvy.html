@@ -1,0 +1,54 @@
+{% extends 'pojisteni/adminbase.html' %}
+{% block content %}
+{%load static%}
+{% load django_bootstrap5 %}
+
+<head>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+<br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Aktualizace smlouvy</h3><br>
+    </div>
+    <table class="table table-success table-striped">
+      <thead>
+        <tr>
+            <th>Čislo</th>
+          <th>Druh pojištění</th>
+          <th>Název smlouvy</th>
+          <th> Pojistná částka</th>
+          <th> Pojistné</th>
+          <th> Pojistná doba</th>
+          <th> Ze dne</th>
+             <th>Změnit</th>
+        </tr>
+      </thead>
+      {% for t in policies %}
+      <tr>
+        <td> {{ forloop.counter }}</td>
+        <td> {{t.category}}</td>
+        <td> {{t.policy_name}}</td>
+        <td> {{t.sum_assurance}},-Kč</td>
+        <td> {{t.premium}},-Kč měsíčně</td>
+        <td> {{t.tenure}} let</td>
+        <td>{{t.creation_date}}</td>
+        <td><a class="m-b-20" href="{% url 'aktualizace-smlouvy' t.id  %}"><span class="glyphicon glyphicon-edit"></span>editovat</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}
