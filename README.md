@@ -1,1 +1,1 @@
-# Tonys-Insurance project for my final exam in Czech
+# Tony's Insurance project for final exam in Czech
